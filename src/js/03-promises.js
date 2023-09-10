@@ -4,6 +4,8 @@ const form = document.querySelector("form");
 console.log(form.delay.value);
 
 form.addEventListener('submit', onSubmit);
+let delay = 0;
+
 
 function onSubmit(event) {
   event.preventDefault();
