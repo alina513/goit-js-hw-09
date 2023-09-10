@@ -1,5 +1,7 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
+
 flatpickr("#datetime-picker", {
     enableTime: true,
     time_24hr: true,
@@ -8,7 +10,7 @@ flatpickr("#datetime-picker", {
     onClose(selectedDates) {
         let data = new Date();
         if (selectedDates[0].getTime() < data.getTime())
-        { alert('Please choose a date in the future')}
+        { Notiflix.Notify.failure('Please choose a date in the future')}
         else {start.disabled = false}
       console.log(selectedDates[0]);
     
