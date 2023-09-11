@@ -36,11 +36,19 @@ start.disabled = true;
         let chooseTime = chooseDate.getTime();
 
         start.disabled = true;
-        setInterval(() => {
+        const timeId = setInterval(() => {
             
             let currentTime = Date.now();
             let newTime = chooseTime - currentTime;
-            convertMs(newTime);},  1000)};
+            convertMs(newTime);
+          if (newTime <= 0) {clearInterval(timeId);
+            spanHours.textContent = addLeadingZero(0);
+            spanDays.textContent = addLeadingZero(0);
+            spanMinutes.textContent = addLeadingZero(0);
+            spanSeconds.textContent = addLeadingZero(0);
+            
+          }
+          },  1000)};
  
             
             function convertMs(ms) {
